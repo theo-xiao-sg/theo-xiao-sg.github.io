@@ -1,0 +1,108 @@
+/* Spyder Dark CSS */
+
+body {
+    background-color: #282C34;
+    color: #ABB2BF;
+}
+
+/* Editor Styles */
+.CodeMirror {
+    background-color: #282C34;
+    color: #ABB2BF;
+}
+
+.CodeMirror-selected {
+    background-color: #3E4451;
+}
+
+.CodeMirror-focused .CodeMirror-selected {
+    background-color: #434C5E;
+}
+
+/* Syntax Elements */
+span.cm-comment {
+    color: #5C6370;
+}
+
+span.cm-keyword {
+    color: #C678DD;
+}
+
+span.cm-atom {
+    color: #D19A66;
+}
+
+span.cm-number {
+    color: #D19A66;
+}
+
+span.cm-def {
+    color: #E5C07B;
+}
+
+span.cm-variable {
+    color: #E06C75;
+}
+
+span.cm-variable-2 {
+    color: #E06C75;
+}
+
+span.cm-variable-3 {
+    color: #E06C75;
+}
+
+span.cm-property {
+    color: #61AFEF;
+}
+
+span.cm-operator {
+    color: #56B6C2;
+}
+
+span.cm-string {
+    color: #98C379;
+}
+
+span.cm-string-2 {
+    color: #98C379;
+}
+
+span.cm-qualifier {
+    color: #56B6C2;
+}
+
+span.cm-builtin {
+    color: #E5C07B;
+}
+
+span.cm-bracket {
+    color: #ABB2BF;
+}
+
+span.cm-tag {
+    color: #ABB2BF;
+}
+
+span.cm-attribute {
+    color: #D19A66;
+}
+
+span.cm-hr {
+    color: #ABB2BF;
+}
+
+span.cm-link {
+    color: #ABB2BF;
+}
+
+span.cm-error {
+    color: #E06C75;
+}
+
+/* Linting */
+.CodeMirror-lint-tooltip {
+    background-color: #282C34;
+    color: #ABB2BF;
+    border: 1px solid #ABB2BF;
+}

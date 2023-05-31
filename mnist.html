@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<!--
+-->
+<html>
+	<head>
+		<title>Xiao Tianyou Theo Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Theo</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects</a></li>
+							<li><a href="handwriting_recognition.html">Handwriting</a></li>
+							<li><a href="binary_search.html">Binary_Search</a></li>
+							<li><a href="investment.html">Investment</a></li>
+							<li><a href="passion_computing.html">Passion_Programming</a></li>
+							<li><a href="myself.html">Myself</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://github.com/theo-xiao-sg" class="icon brands fa-github"  target="_blank"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Recognition of numbers using a model trained with MNIST dataset</h1>
+									<a href="https://github.com/theo-xiao-sg/mnist_recognition" target="_blank" class="button">Source code</a>
+									<p>MNIST is a widely recognized dataset in the realm of machine learning and computer vision. It serves as a crucial benchmark for evaluating the performance of various algorithms and models. Comprising 70,000 grayscale images of handwritten digits, each represented as a 28x28 pixel grid, MNIST offers an ideal playground for tasks like digit recognition and image classification.</p>
+									<p>However, it is not compatible with mouse-written numbers, so I did not use it in my project on handwriting recognition.</p>
+									<p>I tested both models on these three pictures:</p>
+									<img src="images/mnist_test1.png" alt="">
+									<img src="images/mnist_test2.png" alt="">
+									<img src="images/mnist_test3.png" alt="">
+									<p>and the results for the KNN model were:</p>
+								</header>
+								<!-- Preformatted Code -->
+								<style>
+									pre {
+										tab-size: 4;
+									}
+								</style>
+								<pre><code>the average accuracy over 10000 numbers is 97.05%
+
+to recognise the number: 25387
+the number predicted: 25387
+correct recognition of number 25387
+to recognise the number: 60328
+the number predicted: 60328
+correct recognition of number 60328
+to recognise the number: 71646
+the number predicted: 71646
+correct recognition of number 71646</code></pre>
+								<header class = "major">
+									<p>and the results for the neural network model were:</p>
+</header>
+								<!-- Preformatted Code -->
+								<style>
+									pre {
+										tab-size: 4;
+									}
+								</style>
+								<pre><code>the average accuracy over 10000 numbers is 97.62%
+
+to recognise the number: 25387
+the number predicted: 25383
+wrong recognition of number 25387
+to recognise the number: 60328
+the number predicted: 60328
+correct recognition of number 60328
+to recognise the number: 71646
+the number predicted: 31546
+wrong recognition of number 71646</code></pre>
+								<header = "major">
+								<p>In conclusion, this project aimed to recognize numbers using a model trained on the MNIST dataset. Two models, KNN and neural network, were tested on handwritten numbers. The KNN model achieved 97.05% accuracy, while the neural network model achieved 97.62% accuracy but misclassified two numbers. Overall, both models demonstrated impressive performance, showcasing their potential for accurate number recognition tasks. </p>
+
+								</header>
+
+					</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

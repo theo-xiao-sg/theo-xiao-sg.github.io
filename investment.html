@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<!--
+-->
+<html>
+	<head>
+		<title>Xiao Tianyou Theo Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Theo</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects</a></li>
+							<li><a href="handwriting_recognition.html">Handwriting</a></li>
+							<li><a href="binary_search.html">Binary_Search</a></li>
+							<li class = "active"><a href="investment.html">Investment</a></li>
+							<li><a href="passion_computing.html">Passion_Programming</a></li>
+							<li><a href="myself.html">Myself</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://github.com/theo-xiao-sg" class="icon brands fa-github" target="_blank""><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Testing SMA 200</h1>
+									<a href="https://github.com/theo-xiao-sg/investment_python" target="_blank" class="button">Source code</a>
+									<p>So, many content creators made many videos, advertising SMA 200 as a miracle, able to generate money out of thin air. I was skeptical about that and started backtesting SMA 200.</p>
+									<p>The results are as follows:</p>
+								</header>
+								<div class="image main"><img src="img/invest_graph.gif" alt="" /></div>
+								<p>The content creator said: <br />
+"The SMA 200, a widely acknowledged technical analysis tool, has gained considerable recognition for its effectiveness. By calculating the average closing prices over the past 200 periods, it offers a smoothed perspective on long-term trends. Traders and investors appreciate its ability to identify significant support and resistance levels, allowing them to make informed decisions based on the broader market direction. The simplicity and reliability of the SMA 200 have made it an invaluable asset for enhancing trading strategies and improving overall market analysis."</p>
+							<p>However, he failed to point out the fact that there is a one-day period between buying or selling in the market and receiving the profits, meaning that you would miss out on alot of the profit, as pointed out by the graph below.</p>
+							<div class="image main"><img src="img/invest_graph.gif" alt="" /></div>
+							<p>As you can see, the green line (The fake SMA profit they usually show during their videos), is alot higher than the orange line (The real SMA profit that nobody shows)</p>
+								<p>If this piqued your interest, and you want to try it out with other stocks as well, you could always just use this code and replace the variable Ticker with another stock.</p>
+								<p>Here is the code:</p>
+
+<!-- Preformatted Code -->
+<link rel="stylesheet" href="styles.css">
+<pre><code class="highlight"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"># retrieve historical data from Yahoo Finance</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Define a start date and End Date to retrieve the historical data from Yahoo Finance</span>
+<span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;2010-01-01&#39;</span>
+<span class="c1">#setting today date as End Date</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the ticker symbol for the NASDAQ 100 index</span>
+<span class="c1"># ticker = &#39;^NDX&#39;</span>
+<span class="c1"># ticker = &#39;TSLA&#39;</span>
+<span class="c1"># ticker = &#39;MSFT&#39;</span>
+<span class="n">ticker</span> <span class="o">=</span> <span class="s1">&#39;AAPL&#39;</span>
+<span class="c1"># ticker = &#39;AMZN&#39;</span>
+<span class="c1"># ticker = &#39;GOOG&#39;</span>
+<span class="c1"># ticker = &#39;0700.HK&#39;</span>
+<span class="c1"># ticker = &#39;NFLX&#39;</span>
+
+<span class="c1"># Create a Ticker object for the desired ticker symbol</span>
+<span class="n">ticker_y</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+
+<span class="c1"># Get the short name of the ticker</span>
+<span class="n">company_name</span> <span class="o">=</span> <span class="n">ticker_y</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;shortName&quot;</span><span class="p">]</span>
+
+<span class="c1"># Download historical data for the NASDAQ 100 index from Yahoo Finance</span>
+<span class="n">download_data</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"># calculate moving average and daily returns</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">stock_data</span> <span class="o">=</span> <span class="n">download_data</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># rename column name to &#39;price&#39;</span>
+<span class="n">stock_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Close&#39;</span><span class="p">:</span> <span class="s1">&#39;price&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Calculate the 200-day moving average</span>
+<span class="n">ma_window</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;moving_average&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">ma_window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Calculate the daily returns</span>
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;daily_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;daily_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;daily_return&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"># calculate the trading signal</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Create a new column to store the trading signal</span>
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;signal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Apply the trading signal logic based on 200d MA</span>
+<span class="n">stock_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;moving_average&#39;</span><span class="p">],</span> <span class="s1">&#39;signal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Calculate the daily returns based on the trading signal</span>
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;signal_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;daily_return&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;signal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;fake_signal_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;daily_return&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">stock_data</span><span class="p">[</span><span class="s1">&#39;signal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># slice the data to plot pnl from 2020-01-01 to today</span>
+<span class="n">stock_data_slice</span> <span class="o">=</span> <span class="n">stock_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">:]</span>
+
+
+<span class="c1"># Calculate the cumulative returns</span>
+<span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;cumulative_signal_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;signal_return&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
+<span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;fake_cumulative_signal_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;fake_signal_return&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
+
+<span class="c1"># Calculate the PnL for the MA strategy, assuming we invest $100</span>
+<span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;MA_PnL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;cumulative_signal_return&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;fake_MA_PnL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;fake_cumulative_signal_return&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Calculate the PnL for Buy and Hold investment strategy, assuming we invest $100</span>
+<span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;cumulative_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;daily_return&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
+<span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;Buy_Hold_PnL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;cumulative_return&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"># make plots</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">images_folder</span> <span class="o">=</span> <span class="s1">&#39;images&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">images_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Plot prices and the moving average</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;moving_average&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ma_window</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-day Moving Average&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">company_name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Prices and &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ma_window</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-day Moving Average&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">\</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">ma.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">images_folder</span><span class="p">,</span> <span class="n">company_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ma_window</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Plot the cumulative PnL for both the Buy-Hold and MA strategy</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;Buy_Hold_PnL&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Buy_Hold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;fake_MA_PnL&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fake_MA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">company_name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Comparison of Buy_Hold vs MA Strategies - Cumulative PnL&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PnL ($)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">\</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">ma_pnl1.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">images_folder</span><span class="p">,</span> <span class="n">company_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ma_window</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Plot the cumulative PnL for both the Buy-Hold and MA strategy</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;Buy_Hold_PnL&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Buy_Hold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;MA_PnL&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;MA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">company_name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Comparison of Buy_Hold vs MA Strategies - Cumulative PnL&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PnL ($)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">\</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">ma_pnl2.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">images_folder</span><span class="p">,</span> <span class="n">company_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ma_window</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Plot the cumulative PnL for both the Buy-Hold and MA strategy</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;Buy_Hold_PnL&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Buy_Hold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;MA_PnL&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;MA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stock_data_slice</span><span class="p">[</span><span class="s1">&#39;fake_MA_PnL&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fake_MA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">company_name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Comparison of Buy_Hold vs MA Strategies - Cumulative PnL&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PnL ($)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">\</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">ma_pnl3.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">images_folder</span><span class="p">,</span> <span class="n">company_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ma_window</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span></pre></div></code></pre>
+							</section>
+					</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

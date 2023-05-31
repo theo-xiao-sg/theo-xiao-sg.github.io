@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!--
+-->
+<html>
+	<head>
+		<title>Xiao Tianyou Theo's Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Theo</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects</a></li>
+							<li class="active"><a href="handwriting_recognition.html">Handwriting</a></li>
+							<li><a href="binary_search.html">Binary_Search</a></li>
+							<li><a href="investment.html">Investment</a></li>
+							<li><a href="passion_computing.html">Passion_Programming</a></li>
+							<li><a href="myself.html">Myself</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://github.com/theo-xiao-sg" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Mouse-writing recognition
+									using KNN and Neural Networks</h1>
+									<a href="https://github.com/theo-xiao-sg/handwriting_recognition" target="_blank" class="button">Source code</a>
+									<p>Demonstration in a GIF format:</p>
+									<img src = "images/handwriting_recog_demo.gif">
+								</header>
+								<p>
+									Driven by a strong interest in handwriting recognition, I undertook the task of developing a number recognition system to convert handwritten numbers into accurate digital representations. This involved the meticulous process of coding and algorithmic exploration to ensure the reliability and precision of the system. </p>
+							<p>I utilized real mouse-written datasets to explore the effectiveness of different approaches in mouse-writing recognition. While the MNIST dataset is commonly used for handwriting recognition, it primarily consists of handwritten digits rather than mouse-written characters. Hence, it has difficulties recognising mouse-written characters. To address this limitation, I incorporated real mouse-written data to provide a more diverse and representative dataset for my experiment. I employed two main methods, K-Nearest Neighbors (KNN) and Neural Networks, to analyze and compare their performance in recognizing mouse-written characters.</p>
+								<style>
+									pre {
+										tab-size: 4;
+									}
+								</style>
+								<p> The results for Neural Network were:</p>
+								<pre><code>model training for hidden_layer_sizes: 10 ...
+hidden_layer_sizes: 10, accuracy: 11.26%
+
+model training for hidden_layer_sizes: 50 ...
+hidden_layer_sizes: 50, accuracy: 65.52%
+
+model training for hidden_layer_sizes: 100 ...
+hidden_layer_sizes: 100, accuracy: 73.33%
+
+model training for hidden_layer_sizes: 200 ...
+hidden_layer_sizes: 200, accuracy: 78.56%
+
+model training for hidden_layer_sizes: 300 ...
+hidden_layer_sizes: 300, accuracy: 78.62%
+
+model training for hidden_layer_sizes: 400 ...
+hidden_layer_sizes: 400, accuracy: 79.77%
+
+model training for hidden_layer_sizes: 500 ...
+hidden_layer_sizes: 500, accuracy: 82.53%
+
+model training for hidden_layer_sizes: 600 ...
+hidden_layer_sizes: 600, accuracy: 81.61%
+
+model training for hidden_layer_sizes: 700 ...
+hidden_layer_sizes: 700, accuracy: 77.47%
+</code></pre>
+																<style>
+									pre {
+										tab-size: 4;
+									}
+								</style>
+								<p> The results for KNN were:</p>
+								<pre><code>model training for num_neighbors: 1 ...
+num_neighbors: 1, accuracy: 88.97%
+
+model training for num_neighbors: 3 ...
+num_neighbors: 3, accuracy: 84.14%
+
+model training for num_neighbors: 5 ...
+num_neighbors: 5, accuracy: 83.45%
+
+model training for num_neighbors: 7 ...
+num_neighbors: 7, accuracy: 82.07%
+
+model training for num_neighbors: 9 ...
+num_neighbors: 9, accuracy: 80.92%
+
+</code></pre>
+
+
+
+								<p>
+								I conducted a comparison analysis to evaluate the performance of these methods. Additionally, I specifically examined their real-life accuracy, particularly when dealing with messy and challenging mouse-written samples.
+							</p>
+							    <header class="major">
+									<p>Demonstration in a GIF format:</p>
+									<img src = "images/handwriting_recog_demo.gif">
+								</header>
+							<p>
+								<br/>
+								Only after testing their real-life accuracy, I realised that although KNN had a higher numerical accuracy of 88.97%, it had a much lower real-life accuracy than Neural Network, whose real life accuracy was around 95%, despite only having a numerical accuracy of 82.53%</p>
+								<header class="major">
+									<p>Demonstration in a MP4 format:</p>
+									<video width="640" height="512" autoplay muted controls loop>
+										<source src="images/handwriting_recog_demo.mp4" type="video/mp4">									  
+									  Your browser does not support the video tag.									  
+									  </video>
+								</header>
+							</section>
+
+					</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
