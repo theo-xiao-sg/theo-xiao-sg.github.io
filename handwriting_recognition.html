@@ -41,53 +41,37 @@
 							<section class="post">
 								<header class="major">
 									<h1>Mouse-writing recognition
-									using KNN and Neural Networks</h1>
+									using KNN and Neural Network</h1>
 									<a href="https://github.com/theo-xiao-sg/handwriting_recognition" target="_blank" class="button">Source code</a>
+									<p> </p>
 									<p>Demonstration in a GIF format:</p>
 									<img src = "images/handwriting_recog_demo.gif">
 								</header>
-								<p>
-									Driven by a strong interest in handwriting recognition, I undertook the task of developing a number recognition system to convert handwritten numbers into accurate digital representations. This involved the meticulous process of coding and algorithmic exploration to ensure the reliability and precision of the system. </p>
-							<p>I utilized real mouse-written datasets to explore the effectiveness of different approaches in mouse-writing recognition. While the MNIST dataset is commonly used for handwriting recognition, it primarily consists of handwritten digits rather than mouse-written characters. Hence, it has difficulties recognising mouse-written characters. To address this limitation, I incorporated real mouse-written data to provide a more diverse and representative dataset for my experiment. I employed two main methods, K-Nearest Neighbors (KNN) and Neural Networks, to analyze and compare their performance in recognizing mouse-written characters.</p>
+								<!-- Lists -->
+									<h3>Introduction</h3>
+									<p>
+									Driven by a strong interest in handwriting recognition, I undertook the task of developing a number recognition system to convert
+									handwritten numbers into accurate digital representations. This involved the meticulous process of coding and algorithmic exploration
+									to ensure the reliability and precision of the system. </p>
+									<h3>Data</h3>
+									<p>To maximize interactivity, my goal was to develop an interactive tool using Pygame, allowing users to actively engage with it using a mouse.
+										In the initial stages, I chose to leverage my experience with the MNIST dataset (<a href="https://www.nist.gov/itl/products-and-services/emnist-dataset">link</a>).
+										Although the MNIST dataset is commonly used for handwriting recognition,
+										it primarily consisted of handwritten digits rather than characters written with a mouse. As a result, the model trained using the MNIST dataset encountered
+										challenges in accurately recognizing mouse-written characters. </p>
+									<p>To address this limitation, I decided to replace the MNIST dataset with 1447 real mouse-written images
+										to train the models for recognizing characters specifically written with a mouse. This substitution enhanced the dataset's representativeness for my
+										experiment, as it now contained more relevant and diverse samples of mouse-written characters.</p>
+									<h3>Models</h3>
+									<p>I utilized two primary methods, namely K-Nearest Neighbors (KNN) and Neural Network, to analyze and compare their performance in recognizing
+										mouse-written characters. To ensure a fair evaluation, I divided the dataset into a training set (70%) and a testing set (30%). Then, I measured
+										the accuracy of both models using the testing set. The results are as follows:</p>
+									<p>K-Nearest Neighbors (KNN) achieved the accuracy of 80-89% on the testing set using different numbers of neighbours. </p>
 								<style>
 									pre {
 										tab-size: 4;
 									}
 								</style>
-								<p> The results for Neural Network were:</p>
-								<pre><code>model training for hidden_layer_sizes: 10 ...
-hidden_layer_sizes: 10, accuracy: 11.26%
-
-model training for hidden_layer_sizes: 50 ...
-hidden_layer_sizes: 50, accuracy: 65.52%
-
-model training for hidden_layer_sizes: 100 ...
-hidden_layer_sizes: 100, accuracy: 73.33%
-
-model training for hidden_layer_sizes: 200 ...
-hidden_layer_sizes: 200, accuracy: 78.56%
-
-model training for hidden_layer_sizes: 300 ...
-hidden_layer_sizes: 300, accuracy: 78.62%
-
-model training for hidden_layer_sizes: 400 ...
-hidden_layer_sizes: 400, accuracy: 79.77%
-
-model training for hidden_layer_sizes: 500 ...
-hidden_layer_sizes: 500, accuracy: 82.53%
-
-model training for hidden_layer_sizes: 600 ...
-hidden_layer_sizes: 600, accuracy: 81.61%
-
-model training for hidden_layer_sizes: 700 ...
-hidden_layer_sizes: 700, accuracy: 77.47%
-</code></pre>
-																<style>
-									pre {
-										tab-size: 4;
-									}
-								</style>
-								<p> The results for KNN were:</p>
 								<pre><code>model training for num_neighbors: 1 ...
 num_neighbors: 1, accuracy: 88.97%
 
@@ -102,21 +86,49 @@ num_neighbors: 7, accuracy: 82.07%
 
 model training for num_neighbors: 9 ...
 num_neighbors: 9, accuracy: 80.92%
-
 </code></pre>
 
+									<p>The Neural Network model attained the accuracy of 82-86% on the same testing set using one hidden layer and different number of neurons. I also tested multiple hidden layers but with very little improvement.</p>
+									<style>
+									pre {
+										tab-size: 4;
+									}
+								</style>
+								<pre><code>model training for number_of_neurons_i: 100 ...
+number_of_neurons_i: 100, accuracy: 82.99%
+
+model training for number_of_neurons_i: 300 ...
+number_of_neurons_i: 300, accuracy: 83.68%
+
+model training for number_of_neurons_i: 500 ...
+number_of_neurons_i: 500, accuracy: 83.45%
+
+model training for number_of_neurons_i: 700 ...
+number_of_neurons_i: 700, accuracy: 84.60%
+
+model training for number_of_neurons_i: 900 ...
+number_of_neurons_i: 900, accuracy: 85.52%
+
+model training for number_of_neurons_i: 1100 ...
+number_of_neurons_i: 1100, accuracy: 86.21%
+</code></pre>
+<h3>Conclusion and Discussion</h3>
+<p>After comparing the results, it became evident that both models achieved similar levels of accuracy on the testing dataset. However, to assess their performance
+	in real-life scenarios, I decided to go a step further. I deployed the models using a pygame GUI and actively interacted with them, particularly testing them on
+	my messy and challenging mouse-written samples.</p>
+<p>Based on my practical experience, the neural network model exhibited superior capabilities in effectively handling these difficult mouse-written samples. The model
+	proved to be more adept at accurately recognizing and interpreting the messy handwriting.</p>
+<p>To gain a better understanding of the models' performance, I have shared the codes and models (pkl files) on my GitHub repository (<a href="https://github.com/theo-xiao-sg/handwriting_recognition">source codes</a>). I invite you to explore and experiment with them.
+	Additionally, I have prepared animations and videos that demonstrate how the tool handles both normal and messy mouse writings, providing visual illustrations of its functionality.</p>
 
 
-								<p>
-								I conducted a comparison analysis to evaluate the performance of these methods. Additionally, I specifically examined their real-life accuracy, particularly when dealing with messy and challenging mouse-written samples.
-							</p>
 							    <header class="major">
 									<p>Demonstration in a GIF format:</p>
 									<img src = "images/handwriting_recog_demo.gif">
 								</header>
 							<p>
 								<br/>
-								Only after testing their real-life accuracy, I realised that although KNN had a higher numerical accuracy of 88.97%, it had a much lower real-life accuracy than Neural Network, whose real life accuracy was around 95%, despite only having a numerical accuracy of 82.53%</p>
+								</p>
 								<header class="major">
 									<p>Demonstration in a MP4 format:</p>
 									<video width="640" height="512" autoplay muted controls loop>
