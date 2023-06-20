@@ -65,11 +65,11 @@
 									<h3>NN</h3>
 									<p>A neural network (NN) is like a team of neurons that work together to solve problems. They pass messages to each other to form connections in forward direction and make predictions (this is called forward propagation). Then, they learn from prediction errors and update neurons and connections backwards to improve the network (this is called back propagation). It helps computers recognize patterns in things like images or numbers. </p>
 									<p>To illustrate, I made a graph below to show a simplified illustration of how NN performs forward propagation and backpropagation. </p>
-									<img src="images/NN.PNG" style="width: 80%; height: auto;">
+									<img src="images/nn.png" style="width: 80%; height: auto;">
 									<h3>CNN</h3>
 									<p>Convolutional Neural Network (CNN) is the cutting-edge deep neural network that extracts and distinguishes specific features within pictures, such as low-level feature of edges and high-level feature of shapes. CNNs can figure out what objects or patterns are in images, which can even help self-driving cars recognize traffic signs! </p>
 									<p>To illustrate the idea of convolution, I made a graph below to show how convolution filter can extract the feature of vertical edges from an image of T-shirt in the Fashion-MNIST dataset. </p>
-									<img src="images/convolution.PNG" style="width: 80%; height: auto;">
+									<img src="images/convolution.png" style="width: 80%; height: auto;">
 									<p>As illustrated as below, deep learning neural network, like CNN, is better than traditional neural networks in two ways: </p>
 									<p>1. CNN can use convolutional filters to extract more meaningful features from images. </p>
 									<p>2. CNN can accommodate much more layers of neurons. </p>
@@ -146,10 +146,10 @@ loss: 0.4519, - accuracy: 0.9034
 loss: 0.0680, - accuracy: 0.9862
 								</code></pre>
 								<p>The summary of my CNN model with four convolutional layers is shown as below: </p>
-								<img src="images/model_summary.PNG" style="width: 80%; height: auto;">
+								<img src="images/model_summary.png" style="width: 80%; height: auto;">
 								<p>	</p>
 								<p>The learning progress is shown as below: </p>
-								<img src="images/learning_progress.PNG" style="width: 80%; height: auto;">
+								<img src="images/learning_progress.png" style="width: 80%; height: auto;">
 								<p>Furthermore, I can still improve the model through some degree of hyperparameter tuning. For example, by adding more layers or changing the filter sizes in the convolutional layers, I reached an astounding 99.34% accuracy on the test set! That is 0.14% better than using MNIST dataset! Despite having way less data to train on, which to models is an immense disadvantage, it still achieves very high accuracy. This proves that although hyperparameter tuning might be a bit tedious, it still pays off at the end. </p>
 								<style>
 									pre {
@@ -164,10 +164,10 @@ loss: 0.0360, - accuracy: 0.9931
 								<p>To assess their performance in real-life scenarios, I decided to go a step further. I deployed all the three models using a Pygame GUI and actively interacted with them, particularly testing them on my messy and challenging mouse-written samples. </p>
 								<p>Based on my live experience of playing with my tool, the CNN model exhibited superior capabilities in effectively handling these difficult mouse-written samples. The model proved to be more adept at accurately recognizing and interpreting the messy mouse-written numbers. To illustrate the model and Pygame GUI, I have prepared animations and videos on my website (see the bottom of this page) that demonstrate how the tool handles both normal and messy mouse writing numbers, providing visual illustrations of its functionality.</p>
 								<p>I also included a few static images of messy mouse-written numbers in this PDF file as below:</p>
-								<img src="images/messy_image_1.PNG" style="width: 50%; height: auto;">
-								<img src="images/messy_image_2.PNG" style="width: 50%; height: auto;">
-								<img src="images/messy_image_3.PNG" style="width: 50%; height: auto;">
-								<img src="images/messy_image_4.PNG" style="width: 50%; height: auto;">
+								<img src="images/messy_image_1.png" style="width: 50%; height: auto;">
+								<img src="images/messy_image_2.png" style="width: 50%; height: auto;">
+								<img src="images/messy_image_3.png" style="width: 50%; height: auto;">
+								<img src="images/messy_image_4.png" style="width: 50%; height: auto;">
 								<p>	</p>
 								<p>To gain a better understanding of the models' performance, I have shared the codes and models (the .pkl files) on my GitHub repository (<a href="https://github.com/theo-xiao-sg/handwriting_recognition">source codes</a>). I invite you to explore and experiment with them.
 	You can find the readme file on how to deploy and use this tool here (<a href="https://github.com/theo-xiao-sg/handwriting_recognition#readme">readme</a>). I hope you find them as fascinating as I do. </p>
