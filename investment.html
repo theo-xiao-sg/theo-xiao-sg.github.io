@@ -46,69 +46,124 @@
 								</header>
 								<!-- Lists -->
 								<h3>Introduction</h3>
-								<p>During every Chinese New Year, I receive Ang Bao money from my parents, grandparents, and other relatives and friends. I have been investing
-									this money in tech stocks such as Netflix, Tesla, Microsoft, Tencent, and others. Following the tech boom in 2020, I made significant profits.
-									However, I experienced a significant loss when the market underwent a drawdown towards the end of 2021.</p>
-								<p>To mitigate such drawdowns and participate in market rallies, I turned to YouTube for guidance. There are numerous stock trading videos that teach
-									strategies to avoid drawdowns and identify market rallies. One of the most popular tools recommended is the Simple Moving Average (SMA or MA) with a period
-									of 200 days. Many content creators advertised SMA 200 as a miracle, able to participate in the market rallies while avoid drawdowns. I was skeptical about that
-									and would like to build a backtest model to test this popular strategy using Python.</p>
-								<p>After carefully backtesting the SMA strategies, a clear disparity emerges. Investment videos, particularly those seeking to attract paying customers, often emphasize
-									a fabricated SMA strategy that showcases remarkably high returns. This can lead to unrealistic expectations. In contrast, the genuine SMA profit, which is rarely disclosed,
-									provides a more realistic perspective. These exaggerated claims underscore the importance of critically evaluating and scrutinizing investment advice.</p>
-								<h3>Method</h3>
-								<p>The Simple Moving Average (SMA or MA) trading strategy is a popular technical analysis approach used by traders to identify potential
-									trend reversals or entry/exit points in financial markets. The strategy involves calculating the average price of an asset over a specified
-									period of time and using it as a reference for making trading decisions.</p>
+								<p>During every Chinese New Year, I receive some money from my parents, grandparents, and other relatives and friends. I have been investing this money in technology stocks such as Apple, Tesla, Amazon, Microsoft, Tencent, and others. My simple investment strategy is to buy the stocks of the companies which a lot of us use the products of. Following the technology boom in 2020, I made significant profits. However, I experienced a significant loss when the market underwent a drawdown towards the end of 2021.</p>
+								<p>To mitigate such drawdowns and participate in market rallies, I turned to YouTube for guidance. There are numerous stock trading videos that teach strategies to avoid drawdowns and identify market rallies. One of the most popular tools recommended is the Simple Moving Average (SMA or MA) with a period of 200 days. Many content creators advertised SMA 200 as a miracle, able to participate in the market rallies while avoiding drawdowns. I was sceptical about that as it sounded too good to be true and I built a backtest model to test this popular strategy using Python.</p>
+								<p>After carefully backtesting the SMA strategies, a clear disparity emerges. Investment videos, particularly those seeking to attract paying customers, often emphasize a wrongly backtested SMA strategy that showcases remarkably high returns. This can lead to unrealistic expectations. In contrast, the correctly backtested SMA profit, which is rarely disclosed, provides a more realistic perspective. </p>
+								<p>I hope my careful research and backtest can help many investors become more careful while surrounded by much unsound paid investment advice. In addition, the backtest framework can be used for testing other trading strategies, or even apply AI models on it in the future. It again shows I become much more resourceful with the help of Python programming.</p>
+								<h3>Data and Method</h3>
+								<p>The Simple Moving Average (SMA or MA) trading strategy is a popular technical analysis approach used by traders to identify potential trend reversals or entry/exit points in financial markets. The strategy involves calculating the average price of an asset over a specified period and using it as a reference for making trading decisions.</p>
 								<p>Here's how the Simple Moving Average trading strategy typically works:</p>
 								<ol>
-									<li>Select a time period: Determine the time period for calculating the moving average. Common choices include 50 days, 100 days, or 200 days.
-										In this example, I choose 200 days.</li>
-									<li>Calculate the moving average: Add up the daily prices of the stock over the selected time period and divide it by the number of days to get the
-										average. This forms the moving average line.</li>
-									<li>Monitor the price movement: Compare the current price of the stock with the moving average line. If the price crosses above the moving average line,
-										it may indicate a bullish signal, suggesting a potential uptrend. Conversely, if the price crosses below the moving average line, it may suggest a
-										bearish signal, indicating a potential downtrend.</li>
-									<li>Make trading decisions: If the price crosses above the moving average line, you should buy the stock to participate in the market rally;
-										if the price crosses below the moving average line, you should sell the stock to avoid drawdown.</li>
+									<li>Select a time period: Determine the time period for calculating the moving average. Common choices include 50 days, 100 days, or 200 days. In this example, I choose 200 days.</li>
+									<li>Calculate the moving average: Add up the daily prices of the stock over the selected time period and divide it by the number of days to get the average. This forms the moving average line.</li>
+									<li>Monitor the price movement: Compare the current price of the stock with the moving average line. If the price crosses above the moving average line, it may indicate a positive signal, suggesting a potential uptrend. Conversely, if the price crosses below the moving average line, it may suggest a negative signal, indicating a potential downtrend.</li>
+									<li>Make trading decisions: If the price crosses above the moving average line, you should buy the stock to participate in the market rally; if the price crosses below the moving average line, you should sell the stock to avoid drawdown.</li>
 								</ol>
-								<h3>Data</h3>
-								<p>The yfinance package is a powerful tool in Python for accessing and downloading historical stock market data. It allows users to fetch data directly from
-									Yahoo Finance. To download stock data using yfinance, first, you need to install the yfinance package using pip or any other package manager. Once installed,
-									you can import the yfinance module in your Python script. To fetch stock data, simply
-									specify the ticker symbol for the desired stock and the desired time period. For example, you can retrieve historical data for Tesla by using the command:
-									data = yf.download('TSLA', start='2022-01-01', end='2022-12-31'). This will download the stock data for Tesla from January 1, 2022, to December 31, 2022.
-									The downloaded data can then be used for analysis, visualization, or any other tasks related to stock market research. </p>
+								<p>The yfinance (Yahoo Finance) package is a powerful tool in Python for downloading historical stock market data. It allows users to fetch data directly from Yahoo Finance. To illustrate, I show the prices of Tesla and Microsoft from 2020-01-01 to 2023-06-16.</p>
+								<!-- Image -->
+
+								<style>
+									.image-caption {
+									  text-align: center;
+									  font-style: italic;
+									  }
+								  </style>
+
+								  <div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+									  <div class="col-6">
+										<figure>
+										  <span class="image fit">
+											<img src="images/Tesla, Inc._prices.png" alt="" />
+										  </span>
+										</figure>
+									  </div>
+									  <div class="col-6">
+										<figure>
+										  <span class="image fit">
+											<img src="images/Microsoft Corporation_prices.png" alt="" />
+										  </span>
+										</figure>
+									  </div>
+									</div>
+								  </div>
 								<h3>Results</h3>
-								<div class="image main"><img src="images/Netflix, Inc._200ma.png" alt="" /></div>
-								<p>In the plot displayed above, I have depicted the daily price movement of my preferred stock, Netflix, from January 2020 to May 2023. Additionally, the 200-day moving
-									average line has been included in the graph. By observing the plot, it becomes evident that when the stock prices rise above the moving average line from beginning of 2020
-									to end of 2021 and from end of 2022 to May 2023, it serves as a clear bullish signal, and you can make quite some money by holding this stock. Conversely, when the price
-									crosses below the moving average
-									line from end of 2021 to end 2022, it signifies a bearish signal, suggesting a potential drawdown, and you should sell this stock. Utilizing this approach, making investment
-									decisions becomes straightforward, and we can make a lot of profit. The strategy involves purchasing the stock when the price
-									is above the 200-day moving average line and selling it when the price drops below the same moving average line. </p>
-								<p>The following graph is what all these youtubers hope to achieve. The orange line represents the PnL of the SMA 200 strategy, while the blue line represents the PnL of the
-									buy-and-hold strategy. The buy-and-hold strategy simply means I keep the stock throughout this period, and it serves as a benchmark to assess any dynamic trading strategy.
-									As shown by the following plot, the moving average strategy makes significant profit than simply holding the stock. Thus, we always participate in the market rally and avoid market drawdown.
-									However, this performance line is not realistic and wrongly backtested. Thus, I name it as the fake SMA line as they are usually shown by many investment gurus in their YouTube videos. </p>
-								<div class="image main"><img src="images/Netflix, Inc._200ma_pnl1.png" alt="" /></div>
-								<p>After conducting a thorough backtest, the plot below illustrates the profit and loss (PnL) of the actual SMA 200 strategy. While the performance line still outperforms
-									the buy-and-hold strategy, it falls short of the performance depicted by the fake SMA performance line. This indicates that the real SMA 200 strategy does not live up to the
-									claims made by numerous investment gurus.</p>
-								<div class="image main"><img src="images/Netflix, Inc._200ma_pnl2.png" alt="" /></div>
-								<p>When examining the performance of the fake SMA, real SMA, and buy-and-hold strategies in a single plot, a distinct disparity becomes evident. The green line corresponds to
-									the fabricated SMA profit frequently emphasized in investment videos, particularly those aiming to entice viewers into paying for investment lessons. It portrays remarkably
-									higher returns, potentially creating unrealistic expectations. In contrast, the orange line represents the genuine SMA profit, a perspective seldom disclosed by individuals
-									within the investment community. The contrast between the two lines serves to emphasize the exaggerated claims made by select individuals, shedding light on the need for
-									critical evaluation and scrutiny when encountering such investment advice.</p>
-								<div class="image main"><img src="images/Netflix, Inc._200ma_pnl3.png" alt="" /></div>
-								<p>After conducting tests on this moving average strategy with other tech stocks (Tencent, Tesla, Apple, ...), it has become apparent that this approach does not significantly enhance performance compared
-									to simply holding the stock throughout the given period. Certainly, the strategy's performance falls considerably short of the claims made by many investment gurus on YouTube.</p>
-							<div class="image main"><img src="images/invest_graph1.gif" alt="" /></div>
-							<p></p>
-								<p>If this piqued your interest, and you want to try it out with other stocks as well, you could always just use this code and replace the variable Ticker with another stock.</p>
-								<p>Check my codes in GitHub:</p>
+								<div class="image main"><img src="images/Tesla, Inc._200ma.png" style="width: 80%; height: auto;"></div>
+								<p>In the plot displayed above, I have depicted the daily price movement of my favourite stock, Tesla, from January 2020 to Jun 2023. Additionally, the 200-day moving average line has been included in the graph. By observing the plot, it becomes evident that when the stock prices rise above the moving average line from beginning of 2020 to beginning of 2022 and just recently. It serves as a clear positive signal, and you can make quite some money if you hold this stock during this period. Conversely, when the price crosses below the moving average line from beginning of 2022 to recently, it signifies a negative signal, suggesting a potential drawdown, and you should sell this stock just when it happens. </p>
+								<p>It sounds quite easy to be successful in investing in stock markets. And it is what most youtubers hope to achieve as shown in the following graph. The orange line represents the profits and losses of the SMA 200 strategy, while the blue line represents the profits and losses of the buy-and-hold strategy. The buy-and-hold strategy simply means I keep the stock throughout this period, and it serves as a benchmark to assess any dynamic trading strategy. As shown by the following plot, the moving average strategy makes significant profit than simply holding the stock. Thus, we always participate in the market rally and avoid market drawdown.  </p>
+								<div class="image main"><img src="images/Tesla, Inc._200ma_pnl1.png" style="width: 80%; height: auto;"></div>
+								<p>However, during my careful backtest, I found out this performance line is not realistic and wrongly backtested. Many people misaligned the prices and signals. They forgot the signals are only known after the prices are available for the day. So, they can only trade the signal the next day and it means we should have shifted the signal by one day. As the below graph shows, this small mistake has a huge impact on the backtested performance. Thus, I name the above graph as the fake SMA line as they are usually shown by many so-called investment experts in their YouTube videos.</p>
+								<p>After conducting a careful backtest, the plot below illustrates the profit and loss (PnL) of the correctly backtested SMA 200 strategy. While the SMA still generated okay performance, it falls short of the performance of a simple buy-and-hold strategy. This indicates that the real SMA 200 strategy does not live up to the claims made by numerous investment gurus. We could have used the time and effort to do other useful things in life rather than trading in-out in the stock markets following this strategy.</p>
+								<div class="image main"><img src="images/Tesla, Inc._200ma_pnl2.png" style="width: 80%; height: auto;"></div>
+								<p>When examining the performance of the fake SMA, real SMA, and buy-and-hold strategies in a single plot, a distinct disparity becomes even more evident. The green line corresponds to the wrongly backtested SMA profit frequently emphasized in investment videos, particularly those aiming to entice viewers into paying for investment lessons. It portrays remarkably higher returns, potentially creating unrealistic expectations. In contrast, the orange line represents the correctly backtested SMA profit, a perspective seldom disclosed by individuals within the investment community.  The contrast between the two lines emphasizes the exaggerated claims made by some individuals in the investment community. It highlights the need for critical evaluation and scrutiny when encountering investment advice.</p>
+								<div class="image main"><img src="images/Tesla, Inc._200ma_pnl3.png" style="width: 80%; height: auto;"></div>
+								<p>After conducting tests on this moving average strategy with other technology stocks (Microsoft, Amazon, Apple, ...), it has become apparent that this approach does not always enhance performance compared to simply holding the stock throughout the given period. Certainly, the strategy's performance falls considerably short of the claims made by many investment gurus on YouTube.</p>
+							<!-- Image -->
+
+								<style>
+									.image-caption {
+									  text-align: center;
+									  font-style: italic;
+									  }
+								  </style>
+
+								  <div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+									  <div class="col-6">
+										<figure>
+										  <span class="image fit">
+											<img src="images/Apple Inc._200ma.png" alt="" />
+										  </span>
+										</figure>
+									  </div>
+									  <div class="col-6">
+										<figure>
+										  <span class="image fit">
+											<img src="images/Apple Inc._200ma_pnl3.png" alt="" />
+										  </span>
+										</figure>
+									  </div>
+									</div>
+								  </div>
+								<div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+									  <div class="col-6">
+										<figure>
+										  <span class="image fit">
+											<img src="images/Amazon.com, Inc._200ma.png" alt="" />
+										  </span>
+										</figure>
+									  </div>
+									  <div class="col-6">
+										<figure>
+										  <span class="image fit">
+											<img src="images/Amazon.com, Inc._200ma_pnl3.png" alt="" />
+										  </span>
+										</figure>
+									  </div>
+									</div>
+								  </div>
+								<div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+									  <div class="col-6">
+										<figure>
+										  <span class="image fit">
+											<img src="images/Microsoft Corporation_200ma.png" alt="" />
+										  </span>
+										</figure>
+									  </div>
+									  <div class="col-6">
+										<figure>
+										  <span class="image fit">
+											<img src="images/Microsoft Corporation_200ma_pnl3.png" alt="" />
+										  </span>
+										</figure>
+									  </div>
+									</div>
+								  </div>
+								<p>If this piques your interest, and you want to try it out with other stocks as well, you can always just use this code and replace the variable called “Ticker” with another stock. The code always update you with the up-to-date prices from Yahoo Finance. Also, if you are interested in the results for a different SMA window than 200 days, you can always just use this code and replace the variable called “ma_window” with another range.</p>
+								<p>To this end, this backtest framework can be used for testing other trading strategies, or even training AI models on it in the future. It again shows we become much more resourceful to solve real life problem with the help of Python programming.</p>
+								<p>Check my code in GitHub:</p>
 								<a href="https://github.com/theo-xiao-sg/investment_python" target="_blank" class="button">Source code</a>
 								<p>  </p>
 								<p>Or you can find the main code here below:</p>
