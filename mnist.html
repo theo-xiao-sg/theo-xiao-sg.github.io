@@ -40,60 +40,121 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Recognition of numbers using a model trained with MNIST dataset</h1>
+									<h1>COMPARING KNN, NN AND CNN USING MNIST AND FASHION_MNIST DATASETS</h1>
+									<p><br /></p>
 									<a href="https://github.com/theo-xiao-sg/mnist_recognition" target="_blank" class="button">Source code</a>
-									<p>MNIST is a widely recognized dataset in the realm of machine learning and computer vision. It serves as a crucial benchmark for evaluating the performance of various algorithms and models. Comprising 70,000 grayscale images of handwritten digits, each represented as a 28x28 pixel grid, MNIST offers an ideal playground for tasks like digit recognition and image classification.</p>
-									<p>However, it is not compatible with mouse-written numbers, so I did not use it in my project on handwriting recognition.</p>
-									<p>I tested both models on these three pictures:</p>
-									<img src="images/mnist_test1.png" alt="">
-									<img src="images/mnist_test2.png" alt="">
-									<img src="images/mnist_test3.png" alt="">
-									<p>and the results for the KNN model were:</p>
+									<p><br /></p>
 								</header>
+								<!-- Lists -->
+									<h2>Data</h2>
+									<p>The <b>MNIST dataset</b> is a very well-known image dataset of handwritten digits (<a href="https://en.wikipedia.org/wiki/MNIST_database" style="color: blue;">link</a>). It has 60,000 training images and 10,000 testing images, each of which is a grayscale 28 x 28 sized image (as shown below). Although it is a good beginner’s dataset to try different machine learning models, many researchers found this dataset is a bit simple for many machine learning algorithms.</p>
+									<img src="images/mnist.jpg" style="width: 70%; height: auto;">
+									<p>The <b>Fashion-MNIST dataset</b> is a collection of images of fashion items, like T-shirts, dresses, shoes etc (as shown below)(<a href="https://en.wikipedia.org/wiki/Fashion_MNIST" style="color: blue;">link</a>). Since it represents much more complex computer vision task, many researchers use it as a replacement for the original MNIST digits dataset. It shares the same image size (28x28 pixels and grayscale) and has 60,000 training and 10,000 testing images. </p>
+									<img src="images/fashion_mnist.jpg" style="width: 70%; height: auto;">
+									<p>Fashion_MNIST dataset has 10 categories of output labels: 0: T-shirt/top, 1: Trouser, 2: Pullover, 3: Dress, 4: Coat, 5: Sandal, 6: Shirt, 7: Sneaker, 8: Bag, 9: Ankle Boot.</p>
+									<h2>Results</h2>
+									<h3>MNIST dataset Results</h3>
+									<p>I compared three models: KNN, Neural Network (NN), and Convolutional Neural Network (CNN), by classifying the MNIST dataset. I stated the accuracies on the testing dataset for all the three models as follows:</p>
+									<h3>a. KKN model:</h3>
+									<!-- Preformatted Code -->
+								<style>
+									pre {
+										tab-size: 4;
+									}
+								</style>
+								<pre><code>model training for num_neighbors: 1;	accuracy: 96.91%
+model training for num_neighbors: 3; 	accuracy: 97.05%
+model training for num_neighbors: 5; 	accuracy: 96.88%
+model training for num_neighbors: 7;	accuracy: 96.94%
+model training for num_neighbors: 9;	accuracy: 96.59%
+</code></pre>
+									<h3>b. Neural Network model:</h3>
 								<!-- Preformatted Code -->
 								<style>
 									pre {
 										tab-size: 4;
 									}
 								</style>
-								<pre><code>the average accuracy over 10000 numbers is 97.05%
-
-to recognise the number: 25387
-the number predicted: 25387
-correct recognition of number 25387
-to recognise the number: 60328
-the number predicted: 60328
-correct recognition of number 60328
-to recognise the number: 71646
-the number predicted: 71646
-correct recognition of number 71646</code></pre>
-								<header class = "major">
-									<p>and the results for the neural network model were:</p>
-</header>
+								<pre><code>model training for hidden_layer_sizes: 100;	accuracy: 96.85%
+model training for hidden_layer_sizes: 300;	accuracy: 97.79%
+model training for hidden_layer_sizes: 500;	accuracy: 96.98%
+model training for hidden_layer_sizes: 700;	accuracy: 97.85%
+model training for hidden_layer_sizes: 900;	accuracy: 97.00%
+</code></pre>
+									<h3>c. CNN model:</h3>
 								<!-- Preformatted Code -->
 								<style>
 									pre {
 										tab-size: 4;
 									}
 								</style>
-								<pre><code>the average accuracy over 10000 numbers is 97.62%
-
-to recognise the number: 25387
-the number predicted: 25383
-wrong recognition of number 25387
-to recognise the number: 60328
-the number predicted: 60328
-correct recognition of number 60328
-to recognise the number: 71646
-the number predicted: 31546
-wrong recognition of number 71646</code></pre>
-								<header = "major">
-								<p>In conclusion, this project aimed to recognize numbers using a model trained on the MNIST dataset. Two models, KNN and neural network, were tested on handwritten numbers. The KNN model achieved 97.05% accuracy, while the neural network model achieved 97.62% accuracy but misclassified two numbers. Overall, both models demonstrated impressive performance, showcasing their potential for accurate number recognition tasks. </p>
-
-								</header>
-
+								<pre><code>CNN with 2 convolutional layers;	accuracy: 99.06%
+CNN with 4 convolutional layers;	accuracy: 99.28%
+</code></pre>
+								<p>For MNIST dataset, KNN had accuracy of 96.59% -97.05%, and Neural network model achieved 96.85% - 97.85%.  As expected, CNN model achieved the highest accuracy of 99.06% - 99.28% among all three models. </p>
+							<h3>Fashion-MNIST dataset Results</h3>
+							<p>I compared three models: KNN, Neural Network (NN), and Convolutional Neural Network (CNN), by classifying the Fashion_MNIST dataset. I stated the accuracy on the testing dataset for all three models as below:</p>
+							<h3>a. KKN model:</h3>
+								<!-- Preformatted Code -->
+								<style>
+									pre {
+										tab-size: 4;
+									}
+								</style>
+								<pre><code>model training for num_neighbors: 1;	accuracy: 84.97%
+model training for num_neighbors: 3;	accuracy: 85.41%
+model training for num_neighbors: 5;	accuracy: 85.54%
+model training for num_neighbors: 7;	accuracy: 85.40%
+model training for num_neighbors: 9;	accuracy: 85.19%
+</code></pre>
+							<h3>b. Neural Network model:</h3>
+								<!-- Preformatted Code -->
+								<style>
+									pre {
+										tab-size: 4;
+									}
+								</style>
+								<pre><code>model training for hidden_layer_sizes: 100;	accuracy: 88.68%
+model training for hidden_layer_sizes: 300;	accuracy: 89.45%
+model training for hidden_layer_sizes: 500;	accuracy: 89.67%
+model training for hidden_layer_sizes: 700;	accuracy: 89.34%
+model training for hidden_layer_sizes: 900;	accuracy: 89.83%
+</code></pre>
+								<h3>c. CNN model:</h3>
+								<p>During the training of CNN with 4 hidden convolutional layers, I observed that the accuracy of training data was about 98% while the accuracy of validation data was about 91%. It was a clear sign that the model was overfitted. To avoid overfitting during iterations, I added several dropout layers to the model.</p>
+								<!-- Preformatted Code -->
+								<style>
+									pre {
+										tab-size: 4;
+									}
+								</style>
+								<pre><code>CNN with 2 hidden convolutional layers;	accuracy: 91.18%
+CNN with 4 hidden convolutional layers;	accuracy: 91.40%
+CNN with 4 hidden convolutional layers and dropout layers;	accuracy: 92.14%
+</code></pre>
+								<p>After comparing these results of Fashion_MNIST dataset with the results of MNIST dataset, the Fashion_MNIST dataset was indeed a lot more challenging to all the three models tested here. The accuracies on the testing data dropped for all three models. KNN had accuracy of 84.97% -85.54%, and Neural network model achieved 88.68% - 89.83%.  Still, CNN model achieved the highest accuracy of 91.18% - 92.14% among all three models.</p>
+							</section>
 					</div>
-
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Location</h3>
+								<p>Singapore</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">theo.xiao.sg@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>GitHub</h3>
+								<ul class="icons alt">
+									<li><a href="https://github.com/theo-xiao-sg" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+	
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
